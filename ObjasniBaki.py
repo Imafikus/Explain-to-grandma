@@ -7,11 +7,13 @@ from tkinter import messagebox
 from tkinter import Toplevel
 from tkinter import *
 import random
+import time
 
-from PIL import ImageTk, Image
 
 
-                                                                        
+
+global message
+message = "Objasni baki šta je: "                                                                          
 
 class Example(Frame):
   
@@ -31,7 +33,7 @@ class Example(Frame):
         frame1 = Frame(self)
         frame1.pack(fill=X)
            
-        message = "Objasni baki šta je: "
+        
         label = Label(frame1, text=message, font=(None, 18)).grid(row=0, column=0, pady=20, padx=5)
         
         
@@ -44,12 +46,23 @@ class Example(Frame):
 
         
 def start_click():
+        i = 0
+        while(i < 5):
+                message += str(i)
+                i += 1
+                time.sleep(1)
+        """
         f = open("pojmovi.txt", "r")
         List = f.readlines()
         f.close()
         randomTema = random.choice(List)
         print(randomTema)
-        
+
+        f = open("pojmovi.txt", "w")
+        for line in List:
+                if line != randomTema:
+                        f.write(line) 
+        """  
         
         
 
