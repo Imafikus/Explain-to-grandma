@@ -1,48 +1,66 @@
-Dizajn Nivoa (Nikola Pavlovic, Srdjan Nikolic)
--gore levo, dugmad
--biraju strele
--razdaljina
--trofeji
--skala jacine
--gore desno score, pare, koliko strela ostalo, vreme
--vremensko ogranicenje
--vestine koje se otkljucavaju
--skillovi
--vetar, gde ide i brzina
--uvlaci se meni
--tezina se povecava
--easter egg (pogadjanje zivuljki)
--smetnje
-Dizajn mete (Emilija Krstonisic, Milica Vukov)
--2D dok se ne pogodi, i onda zoom na metu
--od 10 do 100 poena
-Dizajn strela
--prvo generic strele
--menjaju se boje, drz ne daj
--zvezda strela, rasprsava se
--turbo strele, no sideeffects, ako pogodi centar ima bonus, pod odredjenim uslovima
--strela zmaj, ako pogodi pticu ima bonus poene
--moze da se kontrolise strela
--easter egg:strela slanina, pica strela, djavola strela
-Dizajn shopa (Milena Stanicic, Elena Rickovski)
--napici
--legendarna karta
--skinovi
--spells (produzi vreme, rastera vetar)
-Dizajn luka (Jovan Jovicic, Aleksa Grijak)
--ima na papiru
--kako se hendluje preciznost
--torbe za strele
--bonus luk 
-Prica (Bogdan Vuckovic, Ilija Jordanovski)
--ima na papiru
-Dizajn likova(Lenka Vuckovic-Jasin, Luka Velickovic)
--generic clothes
--3 lika na pocetku, biramo 1
--level up kako idu
--biraju odecu
+
+from tkinter import Tk, Text, TOP, BOTH, X, N, LEFT
+from tkinter.ttk import Frame, Label, Entry
+from tkinter import Tk, RIGHT, BOTH, RAISED
+from tkinter.ttk import Button, Style
+from tkinter import messagebox
+from tkinter import Toplevel
+from tkinter import *
+import random
+
+from PIL import ImageTk, Image
 
 
+                                                                        
+
+class Example(Frame):
+  
+    def __init__(self):
+        super().__init__()   
+         
+        self.initUI()
+
+        
+    def initUI(self):
+      
+        self.master.title("Objasni Baki")
+        self.pack(fill=BOTH, expand=True, pady=5)
+	
+        frames = []
+                
+        frame1 = Frame(self)
+        frame1.pack(fill=X)
+           
+        message = "Objasni baki šta je: "
+        label = Label(frame1, text=message, font=(None, 18)).grid(row=0, column=0, pady=20, padx=5)
+        
+        
+
+        frame2 = Frame(self)
+        frame2.pack(fill=X)
+        start = Button(frame2, text = "START", command = start_click)
+        start.pack(pady = 30)
+        start.config(height=15, width = 30)
+
+        
+def start_click():
+        f = open("pojmovi.txt", "r")
+        List = f.readlines()
+        f.close()
+        randomTema = random.choice(List)
+        print(randomTema)
+        
+        
+        
 
 
+def main():
+  
+    root = Tk()
+    root.geometry("500x200+300+50")
+    app = Example()
+    root.mainloop()  
 
+
+if __name__ == '__main__':
+    main()  
