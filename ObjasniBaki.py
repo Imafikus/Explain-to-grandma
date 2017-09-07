@@ -47,7 +47,6 @@ class Example(Frame):
         start.config(height=15, width = 30)
 
     def start_click(self):
-       
         f = open("pojmovi.txt", "r")
         List = f.readlines()
         f.close()
@@ -58,11 +57,13 @@ class Example(Frame):
         for line in List:
                 if line != randomTema:
                         f.write(line)
-        
-       
+                
         randomTema = "Objasni baki šta je: " + randomTema
         self.message.set(randomTema)
-        file = 'suspense.wav'
+        
+        music = ["NoMercy.wav", "woah.wav", "Alien.wav", "Dracula.wav", "EvilLaugh.wav", "Fart.wav", "Fart2.wav", "Horse.wav", "suspense.wav", "Suspense2.wav", "WitchLaugh.wav"]          
+        
+        file = random.choice(music)
         pygame.init()
         pygame.mixer.init()
         pygame.mixer.music.load(file)
