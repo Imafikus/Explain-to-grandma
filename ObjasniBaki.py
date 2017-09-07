@@ -8,6 +8,8 @@ from tkinter import Toplevel
 from tkinter import *
 import random
 import time
+import pygame
+
 
                                                                  
 
@@ -52,13 +54,19 @@ class Example(Frame):
         randomTema = random.choice(List)
         #print(randomTema)
 
-        """f = open("pojmovi.txt", "w")
+        f = open("pojmovi.txt", "w")
         for line in List:
                 if line != randomTema:
                         f.write(line)
-        """ 
+        
+       
         randomTema = "Objasni baki šta je: " + randomTema
         self.message.set(randomTema)
+        file = 'suspense.wav'
+        pygame.init()
+        pygame.mixer.init()
+        pygame.mixer.music.load(file)
+        pygame.mixer.music.play()
         
         
         
