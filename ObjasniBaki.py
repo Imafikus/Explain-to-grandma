@@ -9,11 +9,7 @@ from tkinter import *
 import random
 import time
 
-
-
-
-global message
-message = "Objasni baki šta je: "                                                                          
+                                                                 
 
 class Example(Frame):
   
@@ -21,48 +17,50 @@ class Example(Frame):
         super().__init__()   
          
         self.initUI()
-
+        
+    
         
     def initUI(self):
-      
+        self.message = StringVar()
         self.master.title("Objasni Baki")
         self.pack(fill=BOTH, expand=True, pady=5)
 	
         frames = []
-                
+        
         frame1 = Frame(self)
         frame1.pack(fill=X)
-           
+        #message = StringVar()
+        self.message.set("Objasni baki šta je: ")
         
-        label = Label(frame1, text=message, font=(None, 18)).grid(row=0, column=0, pady=20, padx=5)
+               
+        
+        label = Label(frame1, textvariable=self.message, font=(None, 18)).grid(row=0, column=0, pady=20, padx=5)
         
         
 
         frame2 = Frame(self)
         frame2.pack(fill=X)
-        start = Button(frame2, text = "START", command = start_click)
+        start = Button(frame2, text = "START", command = self.start_click)
         start.pack(pady = 30)
         start.config(height=15, width = 30)
 
-        
-def start_click():
-        i = 0
-        while(i < 5):
-                message += str(i)
-                i += 1
-                time.sleep(1)
-        """
+    def start_click(self):
+       
         f = open("pojmovi.txt", "r")
         List = f.readlines()
         f.close()
         randomTema = random.choice(List)
-        print(randomTema)
+        #print(randomTema)
 
-        f = open("pojmovi.txt", "w")
+        """f = open("pojmovi.txt", "w")
         for line in List:
                 if line != randomTema:
-                        f.write(line) 
-        """  
+                        f.write(line)
+        """ 
+        randomTema = "Objasni baki šta je: " + randomTema
+        self.message.set(randomTema)
+        
+        
         
         
 
