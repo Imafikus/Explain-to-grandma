@@ -32,7 +32,7 @@ class Example(Frame):
         frame1 = Frame(self)
         frame1.pack(fill=X)
         #message = StringVar()
-        self.message.set("Objasni baki šta je: ")
+        self.message.set("Objasni babi šta je: ")
         
                
         
@@ -53,12 +53,12 @@ class Example(Frame):
         randomTema = random.choice(List)
         #print(randomTema)
 
-        f = open("pojmovi.txt", "w")
+        """f = open("pojmovi.txt", "w")
         for line in List:
                 if line != randomTema:
                         f.write(line)
-                
-        randomTema = "Objasni baki šta je: " + randomTema
+        """        
+        randomTema = "Objasni babi šta je: " + randomTema
         self.message.set(randomTema)
         
         music = ["NoMercy.wav", "woah.wav", "Alien.wav", "Dracula.wav", "EvilLaugh.wav", "Fart.wav", "Fart2.wav", "Horse.wav", "suspense.wav", "Suspense2.wav", "WitchLaugh.wav"]          
